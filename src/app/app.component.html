@@ -2,34 +2,37 @@
 <h1 style="text-align:center">{{title}}</h1>
 
 <nav>
-<div>
+
  <table width="100%" class="table">
-	<tbody>
-   <td colspan="2">Trace object provider:</td>
-   <td colspan="2">trace analysis</td>
-   <td colspan="2">other tool</td><tr>
-    <td colspan="2">
-    <input type="radio" name="aaa" routerLink="/url" value='URL'>URL
-    <input type="radio" name="aaa" routerLink="/heroes" value='123'>select</td>
-    <tr>
-     <td colspan="2">
+<tbody valign="top">
+   <td colspan="2" width="33%">Trace object provider:<tr>
+        <input type="radio" name="aaa" routerLink="/url" value='URL'>URL
+        <input type="radio" name="aaa" routerLink="/heroes" value='123'>select
+   </td>
+   <td colspan="2" width="33%">trace analysis</td>
+   <td colspan="2" width="33%">other tool</td><tr>
+     <td colspan="2" width="33%">
+         
             <router-outlet></router-outlet>
-            <h2>display result:</h2>    
-        </td>
-           
-        <td colspan="2">
+            <h2>display result:</h2>  
+    
+    </td>
+    
+        <td colspan="2" width="33%">
+          
             <app-dashboard></app-dashboard>
             <h2>display result:</h2> 
-            </td>
-        <td colspan="2">
+           
+        </td>
+        <td colspan="2" width="33%">
             <li><a href="http://baidu.com">HiTrace</a></li>
             <li><a href="http://baidu.com">SSTRunner</a></li>
             <li><a href="http://baidu.com">baidu</a></li>
-	    </td>
+        </td>
 	<tr>
-    <tbody>
+    </tbody>
   </table>
- </div> 
+
 </nav>
 
 
