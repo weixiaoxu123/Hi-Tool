@@ -1,10 +1,14 @@
+<!-- test 读取xml文件是否正确 -->
+<button (click)="weixu()">abc</button><tr>
+<li id="abc"> </li>
+
 <div *ngIf="hero">
-  <h2>{{ hero.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{hero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
+    <h2>{{ hero.name | uppercase }} Details</h2>
+    <div><span>id: </span>{{hero.id}}</div>
+    <div>
+      <label>name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
   </div>
-  <!-- <button (click)="goBack()">go back</button> -->
-</div>
+  
