@@ -2,7 +2,6 @@ import { Hero } from './hero';
 
 export const HEROES: Hero[] = [
   { id: 1, name: 'Cell Disable' },
-  { id: 2, name: 'Link Failure' },
-  { id: 3, name: 'Sleeping Cell' },
-  { id: 4, name: 'PMD Crash' }
+  { id: 2, name: 'Cell degraded' },
+  { id: 3, name: 'Cell Sleeping' }
 ];

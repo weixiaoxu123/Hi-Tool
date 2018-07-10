@@ -12,6 +12,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import { HeroComponent }   from './hero/hero.component';
 import { UrlComponent } from './url/url.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AlarmComponent } from './alarm/alarm.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeroDetailComponent,
     MessagesComponent,
     HeroComponent,
-    UrlComponent
+    UrlComponent,
+    AlarmComponent
   ],
   bootstrap: [ AppComponent ]
 })

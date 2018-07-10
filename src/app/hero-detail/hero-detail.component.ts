@@ -10,15 +10,17 @@ import * as $ from "jquery";
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
-
+  
   constructor() {}
 
   ngOnInit() {
+  
   } 
+
   // 读取xml 
   weixu(){
     $.ajax({
-      url: "/assets/abc.xml",
+      url: "/assets/sleeping cell.xml",
       dataType: 'xml',
       type: 'GET',
       timeout: 2000,
@@ -30,15 +32,18 @@ export class HeroDetailComponent implements OnInit {
       success: function(xml)
       {
         var str='';
-        $(xml).find("taxrate").each(function(i)
-        {
-          var oid = $(this).attr("id");
-          var lower = $(this).children("lower").text();
-          var upper = $(this).children("upper").text();
-          var rate = $(this).children("rate").text();
-          var buckle = $(this).children("buckle").text();
-          str='<li>'+oid+','+lower+','+upper+','+rate+','+buckle+'</li>';
-          $('#abc').append(str);
+        $(xml).find("target").each(function(i)
+        { 
+         
+             var destination = $(this).attr("destination");
+             var str1 = '<li>'+destination+':'+'</li>';
+             $('#abc').append(str1);
+             $(this).find('object').each(function (i) {
+              var name = $(this).attr("name");
+              str='<p>'+name+'</p>';
+              $('#abc').append(str);
+            });
+
           
           //读取了xml 文件  可以直接给它 绑定事件，完成下面的步骤。
         });

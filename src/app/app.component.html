@@ -1,35 +1,46 @@
-
-<h1 style="text-align:center">{{title}}</h1>
-
 <nav>
-
+ <h1 style="text-align:center">{{title}}</h1>
  <table width="100%" class="table">
-<tbody valign="top">
-   <td colspan="2" width="33%">Trace object provider:<tr>
-        <input type="radio" name="aaa" routerLink="/url" value='URL'>URL
-        <input type="radio" name="aaa" routerLink="/heroes" value='123'>select
-   </td>
-   <td colspan="2" width="33%">trace analysis</td>
-   <td colspan="2" width="33%">other tool</td><tr>
-     <td colspan="2" width="33%">
-         
-            <router-outlet></router-outlet>
-            <h2>display result:</h2>  
-    
+ <tbody valign="top">
+
+   <td colspan="2" id="left" width="45%">Trace provider:<tr>
+        <input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
+        <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
+        <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Alarm/Error
+    <div><router-outlet></router-outlet></div>
+    <h2>display result:</h2>  
     </td>
+   <td colspan="2" id="middle" width="45%">Trace analysis<tr>
+    <div><app-dashboard></app-dashboard></div>
+    <h2>display result:</h2>
+   </td>
+   <td colspan="2" id="right" width="10%">Other tool<tr>
+        <li><a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a></li>
+        <li><a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a></li>
+        <li><a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a></li>
+        <li><a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a></li>
+        <li><a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a></li>
+   </td><tr>
+     <!-- <td colspan="2" width="40%">
+        <router-outlet></router-outlet>
+        <h2>display result:</h2>  
     
-        <td colspan="2" width="33%">
+    </td> -->
+    
+        <!-- <td colspan="2" width="40%">
           
             <app-dashboard></app-dashboard>
             <h2>display result:</h2> 
            
-        </td>
-        <td colspan="2" width="33%">
-            <li><a href="http://baidu.com">HiTrace</a></li>
-            <li><a href="http://baidu.com">SSTRunner</a></li>
-            <li><a href="http://baidu.com">baidu</a></li>
-        </td>
-	<tr>
+        </td> -->
+        <!-- <td colspan="2" width="20%">
+        
+            <li><a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px">Hitrace</a></li>
+            <li><a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px">SSTRunner</a></li>
+            <li><a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px">ESID</a></li>
+            <li><a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px">DCFF</a></li>
+            <li><a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px">CFI</a></li>
+        </td> -->
     </tbody>
   </table>
 
@@ -37,8 +48,5 @@
 
 
 
-
-
-
 <!-- <router-outlet></router-outlet> -->
-<h2>TRACE Analysis results:</h2>
+
