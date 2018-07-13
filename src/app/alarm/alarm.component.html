@@ -1,2 +1,6 @@
-
-<tr>Alarm/Erroe   <input type="text" name='alarm'>
+<form>
+ <div class="custom-file">
+        <input ng2FileSelect type="file" class="custom-file-input" [uploader]="uploader" (change)="selectedFileOnChanged($event)" id="customFile" >
+          <button ng-click="uploader.uploadAll()" >uplode</button>
+    </div>
+</form>

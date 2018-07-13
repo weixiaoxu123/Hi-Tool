@@ -1,52 +1,109 @@
-<nav>
- <h1 style="text-align:center">{{title}}</h1>
- <table width="100%" class="table">
- <tbody valign="top">
+<!-- <nav> -->
+<div class="container">
+        <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h1 class="text-center text-info">
+                        Hi tool
+                    </h1>
+                </div>
+        </div>
+        <div class="row clearfix">
+                <div class="col-md-5 column"><p>Trace provider:</p><tr>
+                      <div style="padding: 10px 20px 10px;">
+                        <form class="bs-example bs-example-form" role="form">
+                            <div class="row">
+                                Alarm/Error: 
+                                    <div class="input-group">
+                                      <input #alarm  type="text" class="form-control" placeholder="input alarm/error">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" (click)="searchAlarm(alarm.value)">
+                                                Search!
+                                            </button>
+                                        </span>
+                            </div><!-- /input-group -->
+                               
+                        </div><!-- /.row -->
+                    </form>
+                </div>
 
-   <td colspan="1" id="left" width="45%"><p >Trace provider:</p><tr>
-        <input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
-        <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
-        <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Alarm/Error
+                <div class="btn-group" data-toggle="buttons">   
+                        <label class="btn btn-primary">
+                            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
+                                </label>
+                                 <label class="btn btn-primary">
+                                <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
+                                </label>
+                                <label class="btn btn-primary">
+                                <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
+                            </label>  
+                        </div>
+                     <div><router-outlet></router-outlet></div>
+               </div>
+                
+               <div class="col-md-5 column">
+                        <p>Trace analysis:</p><tr>
+                                <div><app-dashboard></app-dashboard></div>
+                </div>
+                
+                <div class="col-md-2 column">
+                 <p>Other tool</p><tr>
+        
+                        <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
+                        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
+                               
+                </div>
+        </div>
+    </div>
+
+
+
+
+ <!-- <table width="100%" class="table">
+ <tbody valign="top">
+   <td colspan="1" id="left" width="45%"><p>Trace provider:</p><tr>
+      
+    
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+               <div class="col-sm-10">
+        Alarm/Erroe: <input class="form-control" id="focusedInput" type="text"  placeholder="input alarm/error">
+               </div>
+           </div>
+       </form>
+     <div class="btn-group" data-toggle="buttons">   
+        <label class="btn btn-primary">
+            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
+           </label>
+           <label class="btn btn-primary">
+           <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
+           </label>
+           <label class="btn btn-primary">
+          <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
+        </label>  
+    </div>
     <div><router-outlet></router-outlet></div>
+        
     <h2>display result:</h2>  
     </td>
    <td colspan="1" id="middle" width="45%"><p>Trace analysis</p><tr>
     <div><app-dashboard></app-dashboard></div>
     <h2>display result:</h2>
    </td>
-   <td colspan="1" id="right" width="10%"><p>Other tool</p><tr>
-        <li><a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a></li>
-        <li><a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a></li>
-        <li><a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a></li>
-        <li><a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a></li>
-        <li><a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a></li>
-   </td><tr>
-     <!-- <td colspan="2" width="40%">
-        <router-outlet></router-outlet>
-        <h2>display result:</h2>  
-    
-    </td> -->
-    
-        <!-- <td colspan="2" width="40%">
-          
-            <app-dashboard></app-dashboard>
-            <h2>display result:</h2> 
-           
-        </td> -->
-        <!-- <td colspan="2" width="20%">
+   <td colspan="1" id="right" width="10%" class="list-unstyled"><p>Other tool</p><tr>
         
-            <li><a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px">Hitrace</a></li>
-            <li><a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px">SSTRunner</a></li>
-            <li><a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px">ESID</a></li>
-            <li><a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px">DCFF</a></li>
-            <li><a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px">CFI</a></li>
-        </td> -->
+    <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
+        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
+   
     </tbody>
   </table>
-
-</nav>
-
-
+</nav> -->
 
 <!-- <router-outlet></router-outlet> -->
 

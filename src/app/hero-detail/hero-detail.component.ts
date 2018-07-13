@@ -18,36 +18,36 @@ export class HeroDetailComponent implements OnInit {
   } 
 
   // 读取xml 
-  weixu(){
-    $.ajax({
-      url: "/assets/sleeping cell.xml",
-      dataType: 'xml',
-      type: 'GET',
-      timeout: 2000,
+  // weixu(){
+  //   $.ajax({
+  //     url: "/assets/sleeping cell.xml",
+  //     dataType: 'xml',
+  //     type: 'GET',
+  //     timeout: 2000,
       
-      error: function(xml)
-      {
-        alert("加载XML 文件出错！");
-      },
-      success: function(xml)
-      {
-        var str='';
-        $(xml).find("target").each(function(i)
-        { 
+  //     error: function(xml)
+  //     {
+  //       alert("加载XML 文件出错！");
+  //     },
+  //     success: function(xml)
+  //     {
+  //       var str='';
+  //       $(xml).find("target").each(function(i)
+  //       { 
          
-             var destination = $(this).attr("destination");
-             var str1 = '<li>'+destination+':'+'</li>';
-             $('#abc').append(str1);
-             $(this).find('object').each(function (i) {
-              var name = $(this).attr("name");
-              str='<p>'+name+'</p>';
-              $('#abc').append(str);
-            });
+  //            var destination = $(this).attr("destination");
+  //            var str1 = '<li>'+destination+':'+'</li>';
+  //            $('#abc').append(str1);
+  //            $(this).find('object').each(function (i) {
+  //             var name = $(this).attr("name");
+  //             str='<p>'+name+'</p>';
+  //             $('#abc').append(str);
+  //           });
 
           
-          //读取了xml 文件  可以直接给它 绑定事件，完成下面的步骤。
-        });
-      }
-    });
-  }
+  //         //读取了xml 文件  可以直接给它 绑定事件，完成下面的步骤。
+  //       });
+  //     }
+  //   });
+  // }
 }

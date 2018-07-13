@@ -13,6 +13,8 @@ import { HeroComponent }   from './hero/hero.component';
 import { UrlComponent } from './url/url.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlarmComponent } from './alarm/alarm.component';
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { AlarmComponent } from './alarm/alarm.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FileUploadModule
 
 ],
   declarations: [
@@ -31,7 +35,7 @@ import { AlarmComponent } from './alarm/alarm.component';
     MessagesComponent,
     HeroComponent,
     UrlComponent,
-    AlarmComponent
+    AlarmComponent,
   ],
   bootstrap: [ AppComponent ]
 })

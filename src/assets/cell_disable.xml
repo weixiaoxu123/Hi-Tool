@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<platform hardward='G1'>
+ <testcase scenario='cell_disable'>
+	<PrimaryFault Fault = 'Link Failure'>
+		<device destination='RU'>
+			<target module='RU'>
+                <command name='fm getfaults'/>		
+                <command name='dpd status'/>	
+                <command name='tri state 0'/>
+                <command name='tri state 1'/>
+                <command name='te d info trDcProc'/>
+                <command name='te d info txlProcBranch*'/>
+                <command name='te d info RxBranchCtrl*'/>
+                <command name='te d info TxBranchCtrl*'/>
+                <command name='te d info TxLoSrv*'/>
+                <command name='te d info TxTimingPhaseCtrl*'/>
+                <command name='te d info antpServerProc_'/>
+                <command name='te d info bcProc'/>
+                <command name='te d info almProc'/>					
+			</target>	  
+			<target module='CPRI'>
+				<object name='RICR_CPRI_COMMON' group='[state_change]' />	
+                <object name='RICR_CPRI_SLAVE' group='trace[4,5,9]' />			 
+			</target>
+		</device>
+
+        <device destination='XMU'>
+			<target module='XMU'>
+				<object name='rhd-cprid' group='[send_sig rec_sig param],trace[2,6]' />
+				<object name='beam.smp' group='[send_sig rec_sig param],trace[8]' />			
+			</target>
+		</device>
+		
+		<device destination='DU-P'>
+			<target module='CPRI'>
+				<object name='RICM_SPV_CPRI' group='trace[1,2]' />
+				<object name='RICM_DICM_CPRI' group='trace[1,2]' />			
+			</target>	  
+			<target module='RICM'>
+				<object name='RICM_IF_RICI' group='[rec_sig send_sig]' />		
+				<object name='RICM_IF_DCI' group='[rec_sig send_sig]' />
+				<object name='ncRicmDeviceCtrlSwU' group='[all]' />
+				<object name='RICM_SPV_RICI' group='trace[1,2]' />
+				<object name='RICM_SPV_CPRI' group='trace[1,2]' />
+				<object name='RICM_DICM_CPRI' group='trace[1,2]' />
+				<object name='RICM_CON*' group='trace[1,2]' />
+				<object name='RICM_SPV_DELAY' group='trace[1,2]' />
+				<object name='RICM_DICM_CPRI' group='trace[1,2]' />
+				<object name='RICM_CON*' group='trace[1,2]' />
+				<object name='RICM_CONFIG' group='trace[2]' />	
+				<object name='RICM_SPV_DICI' group='trace[1]' />				
+			</target>
+			<target module='RICI'>
+				<object name='RICR_CPRI_COMMON' group='[state_change]' />		
+				<object name='RICR_TMO' group='trace[4]' />		
+				<object name='ltuServer0' group='[send_sig rec_sig],trace[9]' />
+				<object name='RICR' group='[send_sig rec_sig param],trace[9]' />
+				<object name='RICR_int_proxy' group='[rec_sig param],trace[6]' />
+				<object name='ltuServer0' group='[rec_sig send_sig param],trace[9]' />
+				<object name='HRICR' group='trace[4]' />
+				<object name='RICR_CPRI_SLAVE' group='trace[4,5,9]' />
+				<object name='RICR_CPRI_MASTER' group='trace[4,5]' />		
+				<object name='HRICR_INTERRUPT' group='trace[4,5]' />				
+			</target>		
+			<target module='NC'>
+				<object name='ncRadioDeviceCtrlSwU' group='[all]' />		
+				<object name='ncBcIf' group='[all]' />
+				<object name='ncBoardCtrlSwU' group='[all]' />
+				<object name='ncDcIf' group='[all]' />	
+				<object name='ncRicmDeviceCtrlSwU' group='[all]' />
+				<object name='ncIcEquipmentControlIfSwU' group='[all]' />			
+			</target>
+			
+			<target module='IC'>
+				<object name='icPathSwU' group='[all]' />		
+				<object name='icPathAdministrationIfSwU' group='[all]' />
+				<object name='icPathPropertyIfSubSwU' group='[all]' />
+				<object name='icEquipmentControlIfSwU' group='[all]' />
+			</target>
+		
+			<target module='CRA'>
+				<object name='Cra_*' group='[rec_sig send_sig],trace[3,4,5]' />			
+				<object name='Cra_Dt_Bsg' group='trace[3,4,5]' />		
+				<object name='Cra_Dt_Bsb' group='trace[3,4,5]' />
+				<object name='Cra_Dt_Bsh' group='trace[3,4,5]' />
+			</target>	
+			
+			<target module='RAS'>
+				<object name='rasRadioResourceCtrlSwU' group='[all]' />		
+				<object name='' group='trace[]' />
+			</target>						
+		</device> 	
+		</PrimaryFault> 
+		
+	<PrimaryFault Fault = 'Resource Activation Timeout'>
+		<device destination='DU-P'>
+			<check module='CELL & CARRIER  resource'>
+				<object name='Ft_CELL_CONFIG' group='[all]' />		
+				<object name='CARRIER_GROUP' group='[all]' />	
+				<object name='RESOURCE_BROKER' group='[all]' />	
+				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='[all]' />					
+			</check>	 
+			<check module='Power'>
+				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
+			</check>
+			<check module='Sector & RfBranch & RadioPort'>
+				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
+			</check>
+			<check module='Antenna'>
+				<object name='Ft_ANTENNA_CONTROL' group='[all]' />			
+			</check>
+			<check module='SwU'>
+				<object name='ncCarrier' group='[all]' />
+				<object name='ncSectorSwU' group='[all]' />
+				<object name='rasRadioResourceCtrlSwU' group='[all]' />				
+			</check>
+			<check module='NC incoming internal signals'>
+				<object name='ncMgmtIf' group='[all]' />			
+			</check>	
+			<check module='rfBranch'>
+				<object name='ncAntcIf' group='[all]' />			
+			</check>
+			<check module='NC'>
+				<object name='ncCppIf ' group='[all]' />			
+			</check>			
+			<check module='ANTP'>
+				<object name='ncAntpIf ' group='[all]' />			
+			</check>			
+		</device>		
+	</PrimaryFault>		
+		
+		
+		
+	<PrimaryFault Fault = 'Resource Activation Timeout'>
+		<device destination='DU-P'>
+			<check module='CELL & CARRIER  resource'>
+				<object name='Ft_CELL_CONFIG' group='[all]' />		
+				<object name='CARRIER_GROUP' group='[all]' />	
+				<object name='RESOURCE_BROKER' group='[all]' />	
+				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='[all]' />					
+			</check>	 
+			<check module='Power'>
+				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
+			</check>
+			<check module='Sector & RfBranch & RadioPort'>
+				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
+			</check>
+			<check module='Antenna'>
+				<object name='Ft_ANTENNA_CONTROL' group='[all]' />			
+			</check>
+			<check module='SwU'>
+				<object name='ncCarrier' group='[all]' />
+				<object name='ncSectorSwU' group='[all]' />
+				<object name='rasRadioResourceCtrlSwU' group='[all]' />				
+			</check>
+			<check module='NC incoming internal signals'>
+				<object name='ncMgmtIf' group='[all]' />			
+			</check>	
+			<check module='rfBranch'>
+				<object name='ncAntcIf' group='[all]' />			
+			</check>
+			<check module='NC'>
+				<object name='ncCppIf ' group='[all]' />			
+			</check>			
+			<check module='ANTP'>
+				<object name='ncAntpIf ' group='[all]' />			
+			</check>			
+		</device>		
+	</PrimaryFault>
+
+
+	<PrimaryFault Fault = 'License Key Unavailable'>
+		<device destination='DU-P'>
+			<target module='License'>
+				<object name='Ft_LICENSING' group='[all]' />			
+			</target>	   
+		</device>		
+	</PrimaryFault>	
+		
+ </testcase>
+</platform>
+  
+  
+  
+  
+  
+  

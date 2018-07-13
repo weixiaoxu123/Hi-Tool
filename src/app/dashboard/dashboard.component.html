@@ -1,8 +1,15 @@
 <div class="sele">
    <div class="select" > 
-       <input id="fileUpload" type="file" />
-    <button ng-click="uploadFile()">上传</button><tr>
+    <input id="fileUpload" type="file" />
+    <button ng-click="uploadFile()">uplode</button><tr>
    <p color="red">file type(.pmd/.tar.gz/.zip/.rar/.tar)</p>
    </div>
+    <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-info" role="progressbar"
+             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style="width: 40%;">
+            <span class="sr-only">40% 完成</span>
+        </div>
+    </div>
   </div>
   <!-- routerLink="/detail" -->

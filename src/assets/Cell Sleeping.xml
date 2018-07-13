@@ -2,7 +2,7 @@
   
     <scenarios scenario='sleepingcell'>
 	
-      <target destination='mp'>
+      <target destination='mu'>
         <object name='icdbi' />
 		<object name='icEquipmentControlIfSwU' />
 		<object name='icEquipmentSwU' />
@@ -14,9 +14,9 @@
       </target>
 	  
 	  <target destination='xmu'>
-	  <object name='default' />
-	  <object name='beam.smp' />
-	  <object name='rhd-iqx*' />
+	    <object name='default' />
+	    <object name='beam.smp' />
+	    <object name='rhd-iqx*' />
 	  </target>
 	  
 	  </scenarios>

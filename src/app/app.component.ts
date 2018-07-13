@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import * as $ from "jquery";
+import { AlertPromise } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,8 @@ import * as $ from "jquery";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TRACE TOOL';
+  title = 'HI TOOL';
+  searchAlarm(alarm:String){
+    alert(alarm);
+  }
  }

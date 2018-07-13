@@ -1,4 +1,8 @@
+// 这里是kget
+
 import { Component, OnInit } from '@angular/core';
+import { FileUploader } from 'ng2-file-upload';
+
 
 @Component({
   selector: 'app-alarm',
@@ -7,9 +11,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlarmComponent implements OnInit {
 
-  constructor() { }
 
+  constructor() { }
   ngOnInit() {
   }
+ 
 
 }
