@@ -1,0 +1,135 @@
+<!-- <nav> -->
+<div class="container">
+        <div class="row clearfix">
+                <div class="col-md-12 column">
+                    <h1 class="text-center text-info">
+                        Hi tool
+                    </h1>
+                </div>
+        </div>
+        <div class="row clearfix">
+<<<<<<< HEAD
+                <div class="col-md-5 column" width="41.5%"><p>Trace provider:</p><tr>
+=======
+                <div class="col-md-5 column"><p>Trace provider:</p><tr>
+>>>>>>> 0193528e3ee41973547c63261b8b1393fbe216b8
+                      <div style="padding: 10px 20px 10px;">
+                        <form class="bs-example bs-example-form" role="form">
+                            <div class="row">
+                                Alarm/Error: 
+                                    <div class="input-group">
+                                      <input #alarm  type="text" class="form-control" placeholder="input alarm/error">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button" (click)="searchAlarm(alarm.value)">
+                                                Search!
+                                            </button>
+                                        </span>
+                            </div><!-- /input-group -->
+                               
+                        </div><!-- /.row -->
+                    </form>
+                </div>
+
+                <div class="btn-group" data-toggle="buttons">   
+                        <label class="btn btn-primary">
+                            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
+                                </label>
+                                 <label class="btn btn-primary">
+                                <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
+                                </label>
+                                <label class="btn btn-primary">
+                                <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
+                            </label>  
+                        </div>
+                     <div><router-outlet></router-outlet></div>
+               </div>
+                
+<<<<<<< HEAD
+               <div class="col-md-5 column" width="41.5%">
+=======
+               <div class="col-md-5 column">
+>>>>>>> 0193528e3ee41973547c63261b8b1393fbe216b8
+                        <p>Trace analysis:</p><tr>
+                                <div><app-dashboard></app-dashboard></div>
+                </div>
+                
+<<<<<<< HEAD
+                <div class="col-md-2 column" width="16.6%">
+=======
+                <div class="col-md-2 column">
+>>>>>>> 0193528e3ee41973547c63261b8b1393fbe216b8
+                 <p>Other tool</p><tr>
+        
+                        <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
+                        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
+                        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
+                               
+                </div>
+        </div>
+<<<<<<< HEAD
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <app-messages></app-messages>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+=======
+    </div>
+
+
+
+
+>>>>>>> 0193528e3ee41973547c63261b8b1393fbe216b8
+ <!-- <table width="100%" class="table">
+ <tbody valign="top">
+   <td colspan="1" id="left" width="45%"><p>Trace provider:</p><tr>
+      
+    
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label"></label>
+               <div class="col-sm-10">
+        Alarm/Erroe: <input class="form-control" id="focusedInput" type="text"  placeholder="input alarm/error">
+               </div>
+           </div>
+       </form>
+     <div class="btn-group" data-toggle="buttons">   
+        <label class="btn btn-primary">
+            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
+           </label>
+           <label class="btn btn-primary">
+           <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
+           </label>
+           <label class="btn btn-primary">
+          <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
+        </label>  
+    </div>
+    <div><router-outlet></router-outlet></div>
+        
+    <h2>display result:</h2>  
+    </td>
+   <td colspan="1" id="middle" width="45%"><p>Trace analysis</p><tr>
+    <div><app-dashboard></app-dashboard></div>
+    <h2>display result:</h2>
+   </td>
+   <td colspan="1" id="right" width="10%" class="list-unstyled"><p>Other tool</p><tr>
+        
+    <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
+        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
+        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
+   
+    </tbody>
+  </table>
+</nav> -->
+
+<!-- <router-outlet></router-outlet> -->
+
