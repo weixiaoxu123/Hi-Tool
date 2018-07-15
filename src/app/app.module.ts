@@ -14,8 +14,8 @@ import { UrlComponent } from './url/url.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlarmComponent } from './alarm/alarm.component';
 import { CommonModule } from '@angular/common';
-import { FileUploadModule } from 'ng2-file-upload';
 
+import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({
   imports: [
@@ -23,8 +23,8 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    CommonModule,
-    FileUploadModule
+    CommonModule
+
 
 ],
   declarations: [
@@ -35,7 +35,10 @@ import { FileUploadModule } from 'ng2-file-upload';
     MessagesComponent,
     HeroComponent,
     UrlComponent,
-    AlarmComponent,
+    AlarmComponent
+  ],
+  providers: [
+    httpInterceptorProviders
   ],
   bootstrap: [ AppComponent ]
 })
