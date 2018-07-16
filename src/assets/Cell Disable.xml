@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <platform hardward='G1'>
  <testcase scenario='cell_disable'>
-	<PrimaryFault Fault = 'Link Failure'>
-		<device destination='RU'>
+	 <PrimaryFault Fault = 'Link Failure'>
+		 <device destination='RU'>
 			<target module='RU'>
                 <command name='fm getfaults'/>		
                 <command name='dpd status'/>	
@@ -89,12 +89,12 @@
 				<object name='rasRadioResourceCtrlSwU' group='[all]' />		
 				<object name='' group='trace[]' />
 			</target>						
-		</device> 	
-		</PrimaryFault> 
+		</device>  	
+		</PrimaryFault>
 		
 	<PrimaryFault Fault = 'Resource Activation Timeout'>
-		<device destination='DU-P'>
-			<check module='CELL & CARRIER  resource'>
+	<device destination='DU-P'>
+			<check module='CELL 1 CARRIER  resource'>
 				<object name='Ft_CELL_CONFIG' group='[all]' />		
 				<object name='CARRIER_GROUP' group='[all]' />	
 				<object name='RESOURCE_BROKER' group='[all]' />	
@@ -103,7 +103,7 @@
 			<check module='Power'>
 				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
 			</check>
-			<check module='Sector & RfBranch & RadioPort'>
+			<check module='Sector 1 RfBranch 1 RadioPort'>
 				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
 			</check>
 			<check module='Antenna'>
@@ -125,16 +125,16 @@
 			</check>			
 			<check module='ANTP'>
 				<object name='ncAntpIf ' group='[all]' />			
-			</check>			
+			</check>	 
 		</device>		
 	</PrimaryFault>		
 		
 		
 		
 	<PrimaryFault Fault = 'Resource Activation Timeout'>
-		<device destination='DU-P'>
-			<check module='CELL & CARRIER  resource'>
-				<object name='Ft_CELL_CONFIG' group='[all]' />		
+		 <device destination='DU-P'>
+		    <check module='CELL 1 CARRIER  resource'>  
+			<object name='Ft_CELL_CONFIG' group='[all]' />		
 				<object name='CARRIER_GROUP' group='[all]' />	
 				<object name='RESOURCE_BROKER' group='[all]' />	
 				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='[all]' />					
@@ -142,7 +142,7 @@
 			<check module='Power'>
 				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
 			</check>
-			<check module='Sector & RfBranch & RadioPort'>
+			<check module='Sector 1 RfBranch 1 RadioPort'>
 				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
 			</check>
 			<check module='Antenna'>
@@ -161,19 +161,19 @@
 			</check>
 			<check module='NC'>
 				<object name='ncCppIf ' group='[all]' />			
-			</check>			
+			</check>
 			<check module='ANTP'>
 				<object name='ncAntpIf ' group='[all]' />			
-			</check>			
+			</check>		 
 		</device>		
 	</PrimaryFault>
 
 
 	<PrimaryFault Fault = 'License Key Unavailable'>
-		<device destination='DU-P'>
-			<target module='License'>
+	  <device destination='DU-P'>
+			 <target module='License'>
 				<object name='Ft_LICENSING' group='[all]' />			
-			</target>	   
+			</target>	 
 		</device>		
 	</PrimaryFault>	
 		
