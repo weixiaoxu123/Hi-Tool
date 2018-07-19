@@ -1,41 +1,4 @@
-<div class="input-group mb-3">
-    <div class="custom-file">
-        <form enctype="multipart/form-data" method="post">
-          <div>
-            <label class="custom-file-label" for="picked" aria-describedby="picked">Choose Kget file to upload(.txt/.log)</label>
-            <div>
-              <input class="custom-file-input"  type="file" id="picked" #picked 
-                (click)="message=''"
-                (change)="onPicked(picked)">
-            </div>
-          </div>
-        </form>
-    </div>
-</div>
-
-
-
-<!-- 添加一个控件，可以显示kget生成图 -->
-<!-- <p *ngIf="message">{{message}}</p> -->
-
-
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- <button (click)="showpicture()">showKget</button>
-<div *ngIf = showKget  >  -->
-<button (click)="read()">read</button>
-<div id="sample" >
-  <div id="myDiagramDiv" style="border: solid 1px black; width: 100%; height: 600px">   
-    </div>
-     <div>
-       <div>
-          <button id="SaveButton" on-click="save()">Save</button>
-          <button onclick="load()">Load</button>
-           Diagram Model saved in JSON format:
-        </div>
-  
-<textarea id="mySavedModel" style="width:100%;height:300px">
-  </textarea>
-<!-- { "class": "go.GraphLinksModel",
+{ "class": "go.GraphLinksModel",
       "nodeCategoryProperty": "type",
       "linkFromPortIdProperty": "frompid",
       "linkToPortIdProperty": "topid",
@@ -63,11 +26,4 @@
     {"from":6, "frompid":"16", "to":7, "topid":"DATA_1"},
     {"from":4, "frompid":"DATA_2", "to":5, "topid":"DATA_1"},
     {"from":8, "frompid":"DATA_2", "to":9, "topid":"DATA_1"}
-      ]} -->
-
-  </div>
-  </div>
- <!-- </div> -->
- 
-  <!-- <a id="test"></a> -->
- 
+      ]}

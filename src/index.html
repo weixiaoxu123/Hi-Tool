@@ -14,7 +14,7 @@
   <script src="./assets/go.js"></script>
   <!-- <script src="goSamples.js"></script>  this is only for the GoJS Samples framework -->
   <script id="code">
-    function init() {
+     function init() {
       if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
       var $ = go.GraphObject.make;     // create empty picture 
       myDiagram =
@@ -116,27 +116,15 @@
           );
         myDiagram.nodeTemplateMap.add(typename, node);
       }
-      makeTemplate("Du", "/55x55.png", "forestgreen",
+      makeTemplate("Du", "assets/Du.png", "forestgreen",
                    [],
                    [makePort("A", false),makePort("B", false),makePort("C", false),makePort("D", false),makePort("E", false),makePort("F", false)]);
-      makeTemplate("ru", "/55x55.png", "mediumorchid",
+      makeTemplate("ru", "assets/RU.png", "mediumorchid",
                    [makePort("D1", true)],
                    [makePort("D2", false)]);
-      makeTemplate("xmu", "/55x55.png", "darkcyan",
+      makeTemplate("xmu", "assets/xmu.png", "darkcyan",
                    [makePort("1", true),makePort("2", true)],
                    [makePort("16", false)]);
-      makeTemplate("Filter", "/55x55.png", "cornflowerblue",
-                   [makePort("", true)],
-                   [makePort("OUT", false),makePort("INV", false)]);
-      makeTemplate("Group", "/55x55.png", "mediumpurple",
-                   [makePort("", true)],
-                   [makePort("OUT", false)]);
-      makeTemplate("Sort", "/55x55.png", "sienna",
-                   [makePort("", true)],
-                   [makePort("OUT", false)]);ss
-      makeTemplate("Export", "/55x55.png", "darkred",
-                   [makePort("", true)],
-                   []);
       myDiagram.linkTemplate =
         $(go.Link,
           {
@@ -157,9 +145,10 @@
       myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
     }
   </script>
- 
 </head>
+
 <body onload="init()">
+ 
   <app-root></app-root>
 </body>
 </html>
