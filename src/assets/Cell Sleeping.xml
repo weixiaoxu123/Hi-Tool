@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
   
-    <testcase scenario='sleepingcell'>
+<testcase scenario='sleepingcell'>
 	
   <target module='mu'>
     <object name='icdbi' />

@@ -1,117 +1,137 @@
-<!-- <nav> -->
-<div class="container">
-        <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <h1 class="text-center text-info">
-                        Hi tool
-                    </h1>
-                </div>
-        </div>
-        <div class="row clearfix">
-                <div class="col-md-5 column"><p>Trace provider:</p><tr>
-                      <div style="padding: 10px 20px 10px;">
-                        <form class="bs-example bs-example-form" role="form">
-                            <div class="row">
-                                Alarm/Error: 
-                                    <div class="input-group">
-                                      <input #alarm  type="text" class="form-control" placeholder="input alarm/error">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button" (click)="searchAlarm(alarm.value)">
-                                                Search!
-                                            </button>
-                                        </span>
-                            </div><!-- /input-group -->
-                               
-                        </div><!-- /.row -->
-                    </form>
-                </div>
 
-                <div class="btn-group" data-toggle="buttons">   
-                        <label class="btn btn-primary">
-                            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
-                                </label>
-                                 <label class="btn btn-primary">
-                                <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
-                                </label>
-                                <label class="btn btn-primary">
-                                <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
-                            </label>  
+<div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+        
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/HiTool.png" width="150" height="173">
+                </a>
+        
+                <div class="navbar-nav">
+                        
+                        <h4 class="navbar-text">Welcome to {{title}} !</h4>
+                        
+                        <p>Hope you enjoy the tools on this webpage.</p>
+                </div>
+        
+        </nav>
+        
+        
+            <div class="row">
+                <div class="col-md-10">
+                    <!-- <div class="row"> -->
+                <!-- <div class="col-md-6"> -->
+                    <div class="card">
+                        <div class="card-header bg-info">
+                            <h5 class="card-title">Trace Provider</h5>
                         </div>
-                     <div><router-outlet></router-outlet></div>
-               </div>
-                
-               <div class="col-md-5 column">
-                        <p>Trace analysis:</p><tr>
-                                <div><app-dashboard></app-dashboard></div>
-                </div>
-                
-                <div class="col-md-2 column">
-                 <p>Other tool</p><tr>
+                        <div class="card-body">
+                            <!-- <h5 class="card-title">Trace provider</h5> -->
+                            <h4>STEP1:please input youralarm info here.</h4>
+                            <form style="margin-top: 10px">
+                                <div class="form-group">
+                                    <label for="alarmInput" style="margin-bottom: 0">Alarm/Error:</label>
+                                    <input type="text" class="form-control" id="alarmInput" placeholder="please input your alarm info here...">
+                                </div>
+                            </form>
+                            <h4>STEP2:If you have Kget file,please upload it here.</h4>
+                            <app-alarm></app-alarm>
+                            <div class="container">
+                                <div class="row">
+                                   <div class="col-sm-12 col-md-6">
+                                            <div class="input-group" style="width: 100%">
+                                                    <div class="input-group-prepend" style="width: 100%">
+                                                      <div class="input-group-text" style="width: 100%">
+                                                      <input type="radio" name="aaa" routerLink="/url" value='URL' aria-label="Radio button for following text input">
+                                                        <span class="badge">JCAT Log Link</span>
+                                                    </div>
+                                                    </div>
+                                                  </div>
+                                   
+                                    </div>
         
-                        <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
-                        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
-                        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
-                        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
-                        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
-                               
-                </div>
-        </div>
-        <div class="row clearfix">
-            <div class="col-md-12 column">
-             <app-messages></app-messages>
+                                    <div class="col-sm-12 col-md-6">
+        
+                                            <div class="input-group" style="width: 100%">
+                                                    <div class="input-group-prepend" style="width: 100%">
+                                                      <div class="input-group-text" style="width: 100%">
+                                                      <input type="radio" name="aaa" routerLink="/heroes" value='scenario' aria-label="Radio button for following text input">
+                                                        <span class="badge">Scenario Selection</span>
+                                                    </div>
+                                                    </div>
+                                                    
+                                                  </div>
+        
+                                    </div>
+        
+                                </div>
+        
+                                <router-outlet></router-outlet>
+                                <button type="submit" class="btn btn-primary" ng-click="all submit()">Submit</button>
+                                <div class="input-group" style="margin-top: 20px">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text">Display Result</span>
+                                        </div>
+                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+                            </div>
+        
+                            
+                                  
+                        </div>
+                    </div>
+                        <div class="card" style="margin-top: 20px">
+                                <div class="card-header bg-info">
+                                    <h5>Trace Analysis</h5>
+                                </div>
+                                <div class="card-body">
+                                   
+                                    <div class="container">
+                                        
+                                          <app-dashboard></app-dashboard>
+        
+                                          <div class="input-group" style="margin-top: 20px">
+                                                <div class="input-group-prepend">
+                                                  <span class="input-group-text">Display Result</span>
+                                                </div>
+                                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+           
             </div>
-     </div>
-
-
-
-    </div>
-
-
-
-
- <!-- <table width="100%" class="table">
- <tbody valign="top">
-   <td colspan="1" id="left" width="45%"><p>Trace provider:</p><tr>
-      
-    
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="col-sm-2 control-label"></label>
-               <div class="col-sm-10">
-        Alarm/Erroe: <input class="form-control" id="focusedInput" type="text"  placeholder="input alarm/error">
-               </div>
-           </div>
-       </form>
-     <div class="btn-group" data-toggle="buttons">   
-        <label class="btn btn-primary">
-            <tr><input type="radio" name="aaa" routerLink="/url" value='URL'>JCAT Loglink
-           </label>
-           <label class="btn btn-primary">
-           <input type="radio" name="aaa" routerLink="/heroes" value='scenario'>Scenario Selection
-           </label>
-           <label class="btn btn-primary">
-          <input type="radio" name="aaa" routerLink="/alarm" value='alarm'>Kget
-        </label>  
-    </div>
-    <div><router-outlet></router-outlet></div>
         
-    <h2>display result:</h2>  
-    </td>
-   <td colspan="1" id="middle" width="45%"><p>Trace analysis</p><tr>
-    <div><app-dashboard></app-dashboard></div>
-    <h2>display result:</h2>
-   </td>
-   <td colspan="1" id="right" width="10%" class="list-unstyled"><p>Other tool</p><tr>
         
-    <a href="http://baidu.com"><img src="assets/HiTrace.jpg" width="50px" height="50px"></a><tr>
-        <a href="http://baidu.com"><img src="assets/SST.jpg" width="50px" height="50px"></a><tr>
-        <a href="https://lmera-fart.rnd.ki.sw.ericsson.se/esi-debugger-web/"><img src="assets/esid.jpg" width="50px" height="50px"></a><tr>
-        <a href="https://fem020-eiffel003.rnd.ki.sw.ericsson.se:8443/jenkins/view/Misc/job/DCFF_run/build?delay=0sec"><img src="assets/dcff.jpg" width="50px" height="50px"></a><tr>
-        <a href="https://seln.insight.rnd.ericsson.se/insight/index.jsp?linktype=chart&linkcontent=59f9d18f81d6a8b261015ada&parentid=57e8fd7481d62089ab9eb26d&treeNodeId=59f9d18f81d6a8b261015adb"><img src="assets/cfi.jpg" width="50px" height="50px"></a><tr>
-   
-    </tbody>
-  </table>
-</nav> -->
-
-<!-- <router-outlet></router-outlet> -->
-
+                <div class="col-md-2">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                    <h5 class="card-title">Other Tools</h5>
+                            </div>
+                                <div class="card-body">
+                                  
+                
+                                    <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action" style="text-align: center">
+                                                <img src="assets/HiTrace.jpg" width="120px" height="100px">
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action" style="text-align: center">
+                                                <img src="assets/SST.jpg" width="120px" height="100px">
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action" style="text-align: center">
+                                                    <img src="assets/esid.jpg" width="120px" height="100px">
+                                            </a>
+                                            <a href="#" class="list-group-item list-group-item-action" style="text-align: center">
+                                                <img src="assets/dcff.jpg" width="120px" height="100px"></a>
+                                            <a href="#" class="list-group-item list-group-item-action disabled" style="text-align: center">
+                                                    <img src="assets/cfi.jpg" width="120px" height="100px">
+                                            </a>
+                                    </div>                                 
+                                </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- <router-outlet></router-outlet> -->
+        
+        

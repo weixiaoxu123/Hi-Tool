@@ -75,5 +75,8 @@ export class AlarmComponent implements OnInit {
   }
 }
 
+  //kget 
+  
+  
   ngOnInit(){}  
 }

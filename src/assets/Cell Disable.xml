@@ -33,7 +33,7 @@
 		
 		<device destination='DU-P'>
 			<target module='CPRI'>
-				<object name='RICM_SPV_CPRI' group='trace[1,2]' />
+				<object name='RICM_SPV_CPRI' group='trace[1,2]'/>
 				<object name='RICM_DICM_CPRI' group='trace[1,2]' />			
 			</target>	  
 			<target module='RICM'>

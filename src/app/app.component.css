@@ -1,26 +1,57 @@
 
-#left{
-    background-color: yellowgreen;
+/* #left{
+    background-color: yellowgreen
 }
 #middle{
-    background-color:  yellowgreen
+    background-color: rgb(85, 116, 14)
 }
 #right{
-   background-color:  rgb(63, 139, 226)
+   background-color: gray
 }
 table{
     background-color: black
 }
 
 h1{
-    background-color: rgb(63, 139, 226)
+    background-color: gray
 }
 nav{
-    background-color:
+    background-color: gray
+} */
+.navbar {
+    margin-bottom: 30px;
+    height: 200px;
 }
-h1{
-    color: blanchedalmond
+
+.navbar .navbar-brand {
+    position: absolute;
 }
-p{
-    color: black
+
+.navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    width: 100%;
+}
+
+.navbar div {
+    text-align: center
+}
+
+.navbar div h4 {
+    color: white;
+    margin-bottom: 0px;
+}
+
+.navbar div p {
+    font-size: 90%;
+    color: lightcyan;
+}
+
+.card .card-header h5 {
+    margin-bottom: 0
+}
+
+.card .card-header {
+    /* background-color: royalblue; */
+    color: white
 }
