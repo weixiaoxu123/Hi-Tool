@@ -3,16 +3,16 @@
       "linkFromPortIdProperty": "frompid",
       "linkToPortIdProperty": "topid",
       "nodeDataArray": [
-    {"key":1, "type":"Du", "name":"1      DUS5201     000100"},
+    {"key":1, "type":"Du",  "name":"1      DUS5201     000100"},
     {"key":2, "type":"xmu", "name":"2     xmu0301     SXP_0"},
-    {"key":3, "type":"ru", "name":"3      PRUS12B5    BX_0_15"},
+    {"key":3, "type":"ru",  "name":"3      RRUS12B5    BX_0_15"},
     {"key":6, "type":"xmu", "name":"6     xmu0301    BXP_2"},
-    {"key":4, "type":"ru", "name":"4     RRUS01B3    BXP_3"},
-    {"key":8, "type":"ru", "name":"5     RRUS12B3    BXP_2_15"},
-    {"key":10, "type":"ru", "name":"10     PRUS14B3     BXP_5"},
-    {"key":7, "type":"ru", "name":"7       RRUS13B3     BXP_2_15"},
-    {"key":5, "type":"ru", "name":"5     RRUS12B3    BXP_2_15"},
-    {"key":9, "type":"ru", "name":"9      RRUS32B4     BXP_4_1"}
+    {"key":4, "type":"ru",  "name":"4      RRUS01B3    BXP_3"},
+    {"key":8, "type":"ru",  "name":"5      RRUS12B3    BXP_2_15"},
+    {"key":10, "type":"ru", "name":"10    PRUS14B3     BXP_5"},
+    {"key":7, "type":"ru",  "name":"7      RRUS13B3     BXP_2_15"},
+    {"key":5, "type":"ru",  "name":"5      RRUS12B3    BXP_2_15"},
+    {"key":9, "type":"ru",  "name":"9      RRUS32B4     BXP_4_1"}
     
       ],
       "linkDataArray": [
