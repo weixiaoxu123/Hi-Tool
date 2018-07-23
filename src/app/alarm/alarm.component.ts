@@ -1,7 +1,7 @@
 // 这里是kget
 import { Component, OnInit } from '@angular/core';
 import { UploaderService } from './uploader.service';
-
+import * as go from 'gojs/release/go.js';
 import * as $ from "jquery";
 
 @Component({
@@ -11,22 +11,10 @@ import * as $ from "jquery";
   providers: [ UploaderService ]
 })
 export class AlarmComponent implements OnInit {
-  // read(){
-  //   $.ajax({
-  //   type: "GET",
-  //   url: "../assets/demo.txt",
-  //   dataType: "text",
-  //   success: function (data) {
-  //       $("#mySavedModel").append(data);
-  //     }  
-  //   });
-  //    }
-  
-  // showKget = false;
-   
-  // showpicture(){
-  //   this.showKget= !this.showKget;
-  // }
+  showKget = false;
+  showpicture(){
+    this.showKget= !this.showKget;
+  }
   message: string;
 
   constructor(private uploaderService: UploaderService) {}
@@ -41,14 +29,15 @@ export class AlarmComponent implements OnInit {
         }
       );
     }
-    // var splitline='';S
+   // linkline data
     var riLinkId = new Array();
     var f1unit = new Array();
     var f1port = new Array();
     var f2unit = new Array();
     var f2port = new Array();
+   // port data
     var key = new Array();
-    // var tpye = new Array();
+    var type = new Array();
     var name = new Array();
 
     var reader:any,
@@ -60,9 +49,8 @@ export class AlarmComponent implements OnInit {
         var list = reader.result.split("\n");
            for(var i=0;i<list.length-1;i++){
           if(list[i].indexOf("riLinkId")==0){
-                var key = /\d{1,2}/.exec(list[i]);
-                alert(key);
-                riLinkId.push(key); 
+                var linkId = /\d{1,2}/.exec(list[i]);
+                riLinkId.push(linkId); 
                 }
           if(list[i].indexOf("riPortRef1")==0){
             var unit1 =/\d{1,2}/.exec(/Unit=\d+/.exec(list[i]).toString()); 
@@ -77,6 +65,18 @@ export class AlarmComponent implements OnInit {
             f2port.push(port2);
              }
             }
+
+        //将位置错误的f1 和 f2 互换位置
+          for(var i=0;i<f2unit.length;i++){
+          if(f1port[i]=="DATA_1"){
+            var temp2 = f1port[i];
+            f1port[i]=f2port[i];
+            f2port[i]=temp2;
+            temp2=f1unit[i];
+            f1unit[i]=f2unit[i];
+            f2unit[i]=temp2;
+               }
+           }
         
              // 获取k 和 name
         for(var j=0;j<list.length-1;j++){
@@ -90,14 +90,56 @@ export class AlarmComponent implements OnInit {
             var temp=list[k].split(" ");
             key.push(temp[0]);
             name.push(temp[0]+"      "+temp[1]+"      "+temp[2]);
-            alert(name);            
+                    
             }
           }
        }
+    // 生成json 格式文件
+    // alert(riLinkId);
+    // alert(f1unit);
+    // alert(f1port);
+    // alert(key);
+    // alert(name);
     
+    
+    //选取type的值
+    for(var i=0;i<key.length;i++){
+      var temp1=name[i].replace(/\s+/g,' ');  
+      temp1=temp1.split(" ");
+      if(temp1[2].match("DU")){
+        type.push("DU");
+      }
+      if(temp1[2].match("XMU")){
+        type.push("XMU");
+      }
+      if(temp1[2].match("RU")){
+        type.push("RU");
+          }
+     
+    }
+    //编辑文本框内容
+    var jsontxt;
+    jsontxt="{\"class\":\"go.GraphLinksMode\","+"\n"+ "\"nodeCategoryProperty\": \"type\","+"\n"+"\"linkFromPortIdProperty\": \"formpid\","+"\n"+"\"linkToPortIdProperty\": \"topid\","+"\n"+
+    "\"nodeDataArray\": ["+"\n";
+    for(var i=0;i<key.length;i++){
+      if(i===9){
+        jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\",  \"name\":\""+name[i]+"\"}"+"\n";
+        }else{
+      jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\",  \"name\":\""+name[i]+"\"},"+"\n";
+        }
+       }
+       jsontxt=jsontxt+"],"+"\n"+"\"linkDataArray\": ["+"\n";
+       for(var i=0;i<riLinkId.length;i++){
+       if(i===9){
+        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\"}"+"\n";
+        }else{
+        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\"},"+"\n";
+       }
+    }
+    jsontxt=jsontxt+"]}";
+    $("#mySavedModel").append(jsontxt);
       }
  }
-
 
 ngOnInit(){}  
 }

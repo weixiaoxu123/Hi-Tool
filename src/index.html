@@ -13,11 +13,11 @@
   <!-- <script src="./assets/go-debug.js"></script> -->
   <script src="./assets/go.js"></script>
   <script type="text/javascript" src="./assets/jquery.min.js"></script>
-  <!-- <script src="goSamples.js"></script>  this is only for the GoJS Samples framework -->
+  
   <script id="code">
      function init() {
-       read();
-      if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
+      //  read();
+      // if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
       var $ = go.GraphObject.make;     // create empty picture 
       myDiagram =
         $(go.Diagram, "myDiagramDiv",
@@ -118,13 +118,13 @@
           );
         myDiagram.nodeTemplateMap.add(typename, node);
       }
-      makeTemplate("Du", "assets/Du.png", "forestgreen",
+      makeTemplate("DU", "assets/Du.png", "forestgreen",
                    [],
                    [makePort("A", false),makePort("B", false),makePort("C", false),makePort("D", false),makePort("E", false),makePort("F", false)]);
-      makeTemplate("ru", "assets/RU.png", "mediumorchid",
+      makeTemplate("RU", "assets/RU.png", "mediumorchid",
                    [makePort("D1", true)],
                    [makePort("D2", false)]);
-      makeTemplate("xmu", "assets/xmu.png", "darkcyan",
+      makeTemplate("XMU", "assets/xmu.png", "darkcyan",
                    [makePort("1", true),makePort("2", true)],
                    [makePort("16", false)]);
       myDiagram.linkTemplate =
@@ -140,27 +140,29 @@
     }
     // Show the diagram's model in JSON format that the user may edit
     function save() {
-      document.getElementById("mySavedModel").value = myDiagram.model.toJson();
-      myDiagram.isModified = false;
+      // document.getElementById("mySavedModel").value = myDiagram.model.toJson();
+      // myDiagram.isModified = false;
+      init()
     }
     function load() {
       myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
     }
-    function read() {
-       $.ajax({
-       type: "GET",
-       url: "../assets/demo.txt",
-       dataType: "text",
-       success: function (data) {
-        $("#mySavedModel").append(data);
-      }  
-    });
-     
-    }
+   
+    //  function read() {
+    //     init()
+    //    $.ajax({
+    //    type: "GET",
+    //    url: "../assets/demo.txt",
+    //    dataType: "text",
+    //    success: function (data) {
+    //     $("#mySavedModel").append(data);
+    //   }  
+    // });
+    //  }
   </script>
 </head>
 
-<body onload="init()">
+<body>
  
   <app-root></app-root>
 </body>

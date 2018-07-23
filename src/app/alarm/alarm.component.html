@@ -1,4 +1,5 @@
 <div class="input-group mb-3">
+    <button (click)="showpicture()" style="right: 50%">showKget</button>
     <div class="custom-file">
         <form enctype="multipart/form-data" method="post">
           <div>
@@ -11,63 +12,25 @@
           </div>
         </form>
     </div>
+
 </div>
-
-
-
-<!-- ==================== 添加一个控件，可以显示kget生成图 =========================-->
 <!-- ========================<p *ngIf="message">{{message}}</p>===============o- -->
-
-
-<!--    ============================================================================= -->
-<!-- <button (click)="showpicture()">showKget</button>
-<div *ngIf = showKget  >  -->
-<button (click)="read()">read</button>
+<div *ngIf = showKget  > 
 <div id="sample" >
-  <div id="myDiagramDiv" style="border: solid 1px black; width: 100%; height: 600px">   
+  <div id="myDiagramDiv" style="border: solid 1px black; width: 50%; height: 600px">   
     </div>
      <div>
        <div>
-          <button id="SaveButton" on-click="save()">Save</button>
+          <button id="SaveButton" onclick="save()">Init</button>
           <button onclick="load()">Load</button>
            Diagram Model saved in JSON format:
         </div>
   
-<textarea id="mySavedModel" style="width:100%;height:300px">
+<textarea id="mySavedModel" style="width:50%;height:300px">
 </textarea>
-<!-- { "class": "go.GraphLinksModel",
-      "nodeCategoryProperty": "type",
-      "linkFromPortIdProperty": "frompid",
-      "linkToPortIdProperty": "topid",
-      "nodeDataArray": [
-    {"key":1, "type":"Du", "name":"1      DUS5201     000100"},
-    {"key":2, "type":"xmu", "name":"2     xmu0301     SXP_0"},
-    {"key":3, "type":"ru", "name":"3      PRUS12B5    BX_0_15"},
-    {"key":6, "type":"xmu", "name":"6     xmu0301    BXP_2"},
-    {"key":4, "type":"ru", "name":"4     RRUS01B3    BXP_3"},
-    {"key":8, "type":"ru", "name":"5     RRUS12B3    BXP_2_15"},
-    {"key":10, "type":"ru", "name":"10     PRUS14B3     BXP_5"},
-    {"key":7, "type":"ru", "name":"7       RRUS13B3     BXP_2_15"},
-    {"key":5, "type":"ru", "name":"5     RRUS12B3    BXP_2_15"},
-    {"key":9, "type":"ru", "name":"9      RRUS32B4     BXP_4_1"}
-    
-      ],
-      "linkDataArray": [
-    {"from":1, "frompid":"A", "to":2, "topid":"1"},
-    {"from":1, "frompid":"B", "to":2, "topid":"2"},
-    {"from":2, "frompid":"16", "to":3, "topid":"DATA_1"},
-    {"from":1, "frompid":"C", "to":6, "topid":"1"},
-    {"from":1, "frompid":"D", "to":4, "topid":"DATA_1"},
-    {"from":1, "frompid":"E", "to":8, "topid":"DATA_1"},
-    {"from":1, "frompid":"F", "to":10, "topid":"DATA_1"},
-    {"from":6, "frompid":"16", "to":7, "topid":"DATA_1"},
-    {"from":4, "frompid":"DATA_2", "to":5, "topid":"DATA_1"},
-    {"from":8, "frompid":"DATA_2", "to":9, "topid":"DATA_1"}
-      ]} -->
-   
-  </div>
-  </div>
- <!-- </div> -->
  
-  <!-- <a id="test"></a> -->
+   </div>
+  </div>
+ </div>
+<!-- <a id="test"></a>显示文件的内容 -->
  
