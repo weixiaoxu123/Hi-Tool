@@ -145,9 +145,12 @@
       init()
     }
     function load() {
+    try{
       myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+    }catch(err){
+      alert("Please Select Kgetfile !!!!!!");
     }
-   
+  }
     //  function read() {
     //     init()
     //    $.ajax({
@@ -158,7 +161,7 @@
     //     $("#mySavedModel").append(data);
     //   }  
     // });
-    //  }
+    //}
   </script>
 </head>
 

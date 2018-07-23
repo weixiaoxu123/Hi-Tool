@@ -7,7 +7,7 @@ import { AlertPromise } from 'selenium-webdriver';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'HI TOOL';
+  title = 'HiTool';
   //  searchAlarm(alarm:String){
   //    alert(alarm);
   // }
