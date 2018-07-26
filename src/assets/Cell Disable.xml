@@ -1,9 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <platform hardward='G1'>
  <testcase scenario='cell_disable'>
-	 <PrimaryFault Fault = 'Link Failure'>
-		 <device destination='RU'>
-			<target module='RU'>
+	<PrimaryFault Fault = 'Link Failure'>
+<!--while Device destination is RU, "lh ru" should be added into the whole command   -->
+		<device destination='RU'>
+			<target module='radio'>
+<!--  	format with command : destination + command name(just copy the content between'' as the whole command);  
+        take <command name='fm getfaults'/> as example, the whole command should be "lh ru fm getfaults"-->
                 <command name='fm getfaults'/>		
                 <command name='dpd status'/>	
                 <command name='tri state 0'/>
@@ -18,28 +21,34 @@
                 <command name='te d info bcProc'/>
                 <command name='te d info almProc'/>					
 			</target>	  
-			<target module='CPRI'>
-				<object name='RICR_CPRI_COMMON' group='[state_change]' />	
+			<target module='RICR'>
+<!-- format with trace object : destination + "te e" + trace group + trace object
+     take RICR_CPRI_COMMON as example : lh ru te e state_change RICR_CPRI_COMMON-->
+				<object name='RICR_CPRI_COMMON' group='trace[state_change]' />	
+<!-- lh ru te e trace4 trace5 trace9 RICR_CPRI_SLAVE-->
                 <object name='RICR_CPRI_SLAVE' group='trace[4,5,9]' />			 
 			</target>
 		</device>
 
+<!--here the destination is XMU, "lh XMU" -->
         <device destination='XMU'>
-			<target module='XMU'>
-				<object name='rhd-cprid' group='[send_sig rec_sig param],trace[2,6]' />
-				<object name='beam.smp' group='[send_sig rec_sig param],trace[8]' />			
+			<target module='RICR'>
+				<object name='rhd-cprid' group='trace[2,6,send_sig,rec_sig,param]' />
+				<object name='beam.smp' group='trace[8,send_sig,rec_sig,param]' />			
 			</target>
 		</device>
 		
 		<device destination='DU-P'>
 			<target module='CPRI'>
-				<object name='RICM_SPV_CPRI' group='trace[1,2]'/>
+<!--while the destination is DU, no "lh" needed to add in the whole command
+    take RICM_SPV_CPRI as example : te e trace1 RICM_SPV_CPRI-->
+				<object name='RICM_SPV_CPRI' group='trace[1,2]' />
 				<object name='RICM_DICM_CPRI' group='trace[1,2]' />			
 			</target>	  
 			<target module='RICM'>
-				<object name='RICM_IF_RICI' group='[rec_sig send_sig]' />		
-				<object name='RICM_IF_DCI' group='[rec_sig send_sig]' />
-				<object name='ncRicmDeviceCtrlSwU' group='[all]' />
+				<object name='RICM_IF_RICI' group='trace[rec_sig,send_sig]' />		
+				<object name='RICM_IF_DCI' group='trace[rec_sig,send_sig]' />
+				<object name='ncRicmDeviceCtrlSwU' group='trace[all]' />
 				<object name='RICM_SPV_RICI' group='trace[1,2]' />
 				<object name='RICM_SPV_CPRI' group='trace[1,2]' />
 				<object name='RICM_DICM_CPRI' group='trace[1,2]' />
@@ -51,134 +60,136 @@
 				<object name='RICM_SPV_DICI' group='trace[1]' />				
 			</target>
 			<target module='RICI'>
-				<object name='RICR_CPRI_COMMON' group='[state_change]' />		
+				<object name='RICR_CPRI_COMMON' group='trace[state_change]' />		
 				<object name='RICR_TMO' group='trace[4]' />		
-				<object name='ltuServer0' group='[send_sig rec_sig],trace[9]' />
-				<object name='RICR' group='[send_sig rec_sig param],trace[9]' />
-				<object name='RICR_int_proxy' group='[rec_sig param],trace[6]' />
-				<object name='ltuServer0' group='[rec_sig send_sig param],trace[9]' />
+				<object name='ltuServer0' group='trace[9,send_sig,rec_sig]' />
+				<object name='RICR' group='trace[9,send_sig,rec_sig,param]' />
+				<object name='RICR_int_proxy' group='trace[6,rec_sig,param]' />
+				<object name='ltuServer0' group='trace[9,rec_sig,send_sig,param]' />
 				<object name='HRICR' group='trace[4]' />
 				<object name='RICR_CPRI_SLAVE' group='trace[4,5,9]' />
 				<object name='RICR_CPRI_MASTER' group='trace[4,5]' />		
 				<object name='HRICR_INTERRUPT' group='trace[4,5]' />				
 			</target>		
 			<target module='NC'>
-				<object name='ncRadioDeviceCtrlSwU' group='[all]' />		
-				<object name='ncBcIf' group='[all]' />
-				<object name='ncBoardCtrlSwU' group='[all]' />
-				<object name='ncDcIf' group='[all]' />	
-				<object name='ncRicmDeviceCtrlSwU' group='[all]' />
-				<object name='ncIcEquipmentControlIfSwU' group='[all]' />			
+				<object name='ncRadioDeviceCtrlSwU' group='trace[all]' />		
+				<object name='ncBcIf' group='trace[all]' />
+				<object name='ncBoardCtrlSwU' group='trace[all]' />
+				<object name='ncDcIf' group='trace[all]' />	
+				<object name='ncRicmDeviceCtrlSwU' group='trace[all]' />
+				<object name='ncIcEquipmentControlIfSwU' group='trace[all]' />			
 			</target>
 			
 			<target module='IC'>
-				<object name='icPathSwU' group='[all]' />		
-				<object name='icPathAdministrationIfSwU' group='[all]' />
-				<object name='icPathPropertyIfSubSwU' group='[all]' />
-				<object name='icEquipmentControlIfSwU' group='[all]' />
+				<object name='icPathSwU' group='trace[all]' />		
+				<object name='icPathAdministrationIfSwU' group='trace[all]' />
+				<object name='icPathPropertyIfSubSwU' group='trace[all]' />
+				<object name='icEquipmentControlIfSwU' group='trace[all]' />
 			</target>
 		
 			<target module='CRA'>
-				<object name='Cra_*' group='[rec_sig send_sig],trace[3,4,5]' />			
+				<object name='Cra_*' group='trace[3,4,5,rec_sig,send_sig]' />			
 				<object name='Cra_Dt_Bsg' group='trace[3,4,5]' />		
 				<object name='Cra_Dt_Bsb' group='trace[3,4,5]' />
 				<object name='Cra_Dt_Bsh' group='trace[3,4,5]' />
 			</target>	
 			
 			<target module='RAS'>
-				<object name='rasRadioResourceCtrlSwU' group='[all]' />		
-				<object name='' group='trace[]' />
+				<object name='rasRadioResourceCtrlSwU' group='trace[all]' />		
 			</target>						
-		</device>  	
-		</PrimaryFault>
+		</device> 	
+		</PrimaryFault> 
 		
 	<PrimaryFault Fault = 'Resource Activation Timeout'>
-	<device destination='DU-P'>
-			<check module='CELL 1 CARRIER  resource'>
-				<object name='Ft_CELL_CONFIG' group='[all]' />		
-				<object name='CARRIER_GROUP' group='[all]' />	
-				<object name='RESOURCE_BROKER' group='[all]' />	
-				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='[all]' />					
+		<device destination='DU-P'>
+<!--here check tag used here to mark decision needs to be made to choose specific trace objects -->
+			<check module='CELL * CARRIER  resource'>
+				<object name='Ft_CELL_CONFIG' group='trace[all]' />		
+				<object name='CARRIER_GROUP' group='trace[all]' />	
+				<object name='RESOURCE_BROKER' group='trace[all]' />	
+				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='trace[all]' />					
 			</check>	 
 			<check module='Power'>
-				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
+				<object name='Ft_CELL_POWER_SETTING' group='trace[all]' />			
 			</check>
-			<check module='Sector 1 RfBranch 1 RadioPort'>
-				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
+			<check module='Sector * RfBranch * RadioPort'>
+				<object name='Ft_SECTOR_CONFIG' group='trace[all]' />			
 			</check>
 			<check module='Antenna'>
-				<object name='Ft_ANTENNA_CONTROL' group='[all]' />			
+				<object name='Ft_ANTENNA_CONTROL' group='trace[all]' />			
 			</check>
 			<check module='SwU'>
-				<object name='ncCarrier' group='[all]' />
-				<object name='ncSectorSwU' group='[all]' />
-				<object name='rasRadioResourceCtrlSwU' group='[all]' />				
+				<object name='ncCarrier' group='trace[all]' />
+				<object name='ncSectorSwU' group='trace[all]' />
+				<object name='rasRadioResourceCtrlSwU' group='trace[all]' />				
 			</check>
 			<check module='NC incoming internal signals'>
-				<object name='ncMgmtIf' group='[all]' />			
+				<object name='ncMgmtIf' group='trace[all]' />			
 			</check>	
 			<check module='rfBranch'>
-				<object name='ncAntcIf' group='[all]' />			
+				<object name='ncAntcIf' group='trace[all]' />			
 			</check>
 			<check module='NC'>
-				<object name='ncCppIf ' group='[all]' />			
+				<object name='ncCppIf ' group='trace[all]' />			
 			</check>			
 			<check module='ANTP'>
-				<object name='ncAntpIf ' group='[all]' />			
-			</check>	 
+				<object name='ncAntpIf ' group='trace[all]' />			
+			</check>			
 		</device>		
 	</PrimaryFault>		
 		
 		
 		
-	<PrimaryFault Fault = 'Resource Activation Timeout'>
-		 <device destination='DU-P'>
-		    <check module='CELL 1 CARRIER  resource'>  
-			<object name='Ft_CELL_CONFIG' group='[all]' />		
-				<object name='CARRIER_GROUP' group='[all]' />	
-				<object name='RESOURCE_BROKER' group='[all]' />	
-				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='[all]' />					
+	<PrimaryFault Fault = 'Resource Allocation failure'>
+		<device destination='DU-P'>
+			<check module='CELL * CARRIER  resource'>
+				<object name='Ft_CELL_CONFIG' group='trace[all]' />		
+				<object name='CARRIER_GROUP' group='trace[all]' />	
+				<object name='RESOURCE_BROKER' group='trace[all]' />	
+				<object name='Ft_BB_RESOURCE_SET_HANDLING' group='trace[all]' />					
 			</check>	 
 			<check module='Power'>
-				<object name='Ft_CELL_POWER_SETTING' group='[all]' />			
+				<object name='Ft_CELL_POWER_SETTING' group='trace[all]' />			
 			</check>
-			<check module='Sector 1 RfBranch 1 RadioPort'>
-				<object name='Ft_SECTOR_CONFIG' group='[all]' />			
+			<check module='Sector * RfBranch * RadioPort'>
+				<object name='Ft_SECTOR_CONFIG' group='trace[all]' />			
 			</check>
 			<check module='Antenna'>
-				<object name='Ft_ANTENNA_CONTROL' group='[all]' />			
+				<object name='Ft_ANTENNA_CONTROL' group='trace[all]' />			
 			</check>
 			<check module='SwU'>
-				<object name='ncCarrier' group='[all]' />
-				<object name='ncSectorSwU' group='[all]' />
-				<object name='rasRadioResourceCtrlSwU' group='[all]' />				
+				<object name='ncCarrier' group='trace[all]' />
+				<object name='ncSectorSwU' group='trace[all]' />
+				<object name='rasRadioResourceCtrlSwU' group='trace[all]' />				
 			</check>
 			<check module='NC incoming internal signals'>
-				<object name='ncMgmtIf' group='[all]' />			
+				<object name='ncMgmtIf' group='trace[all]' />			
 			</check>	
 			<check module='rfBranch'>
-				<object name='ncAntcIf' group='[all]' />			
+				<object name='ncAntcIf' group='trace[all]' />			
 			</check>
 			<check module='NC'>
-				<object name='ncCppIf ' group='[all]' />			
-			</check>
+				<object name='ncCppIf ' group='trace[all]' />			
+			</check>			
 			<check module='ANTP'>
-				<object name='ncAntpIf ' group='[all]' />			
-			</check>		 
+				<object name='ncAntpIf ' group='trace[all]' />			
+			</check>			
 		</device>		
 	</PrimaryFault>
 
 
 	<PrimaryFault Fault = 'License Key Unavailable'>
-	  <device destination='DU-P'>
-			 <target module='License'>
-				<object name='Ft_LICENSING' group='[all]' />			
-			</target>	 
+		<device destination='DU-P'>
+			<target module='License'>
+				<object name='Ft_LICENSING' group='trace[all]' />			
+			</target>	   
 		</device>		
 	</PrimaryFault>	
-		
  </testcase>
 </platform>
+
+
+
   
   
   

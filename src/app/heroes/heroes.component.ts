@@ -23,32 +23,33 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     var filepath = hero.name;
+    
     $.ajax({
       url: "/assets/"+filepath+".xml",
       dataType: 'xml',
       type: 'GET',
       timeout: 2000,
-      
       error: function(xml)
       {
         alert("加载XML 文件出错！");
       },
       success: function(xml)
       {
-        var str='';
         $(xml).find("platform").each(function(i)
         {   
-             var hardward = $(this).attr("hardward");
-             var str1 = '<li>'+hardward+':'+'</li>';
-               $('#abc').append(str1);
-               $(this).find('testcase').each(function (i) {
+             var platform = $(this).attr("hardward");
+             var str1 = '<li>'+platform+':'+'</li>';
+              $('#abc').append(str1);
+              $(this).find('testcase').each(function (i) {
                    var scenario = $(this).attr("scenario");
                    var strscenario='<p>-'+scenario+'</p>';
                    $('#abc').append(strscenario);
+
                $(this).find('PrimaryFault').each(function (i) {
                   var Fault =$(this).attr("Fault");
                   var strfault='<p>--'+Fault+'</p>';
                     $('#abc').append(strfault);
+
                $(this).find('device').each(function (i) {
                    var destination = $(this).attr("destination");
                      var strdestination='<p>---'+destination+'</p>';
@@ -60,20 +61,49 @@ export class HeroesComponent implements OnInit {
                      $(this).find('object').each(function (i) {
                       var name = $(this).attr("name");
                       var group=$(this).attr('group');
-                      var strname='<p>-------'+ name+ '--group:' +group+'</p>';
-                      $('#abc').append(strname);   
-                      });//check object
+                      var group1=group.match(/\[(.+?)\]/g).toString().replace(/\[|]/g,'').split(",");
+                      var strgroup="";
+                      for(var i=0;i<group1.length;i++){
+                          if(/[0-9]/.test(group1[i])){
+                            strgroup=strgroup+"trace"+group1[i]+" ";
+                            }else{
+                            strgroup=strgroup+group1[i]+" ";
+                            }
+                    }
+                        var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+                        $('#abc').append(strname);   
+                    });//check object
+                    $(this).find('command').each(function (i) {
+                      var name = $(this).attr("name");
+                      var group=$(this).attr('group');
+                      if(!group){
+                       var strcomname='<p>-------'+ name+'</p>';
+                      }else{
+                       var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
+                      }
+                     $('#abc').append(strcomname);  
+                     });
                   }); //check
+
 
                   $(this).find('target').each(function (i) {
                     var module1 = $(this).attr("module");
-                     var strtraget=str='<p>----'+ module1 +'</p>';
+                     var strtraget='<p>----'+ module1 +'</p>';
                     $('#abc').append(strtraget);    
                     $(this).find('object').each(function (i) {
                       var name = $(this).attr("name");
                       var group=$(this).attr('group');
-                      var strname='<p>-------'+ name+ '--group:' +group+'</p>';
-                      $('#abc').append(strname);  
+                      var group1=group.match(/\[(.+?)\]/g).toString().replace(/\[|]/g,'').split(",");
+                      var strgroup="";
+                      for(var i=0;i<group1.length;i++){
+                          if(/[0-9]/.test(group1[i])){
+                            strgroup=strgroup+"trace"+group1[i]+" ";
+                            }else{
+                            strgroup=strgroup+group1[i]+" ";
+                            }
+                      }
+                        var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+                        $('#abc').append(strname);   
                     }); //target object
                     $(this).find('command').each(function (i) {
                        var name = $(this).attr("name");
@@ -84,9 +114,7 @@ export class HeroesComponent implements OnInit {
                         var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
                        }
                       $('#abc').append(strcomname);  
-                    }); //target command
-
-
+                      }); //target command
                      }); //target                
                    });//device
                  

@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xml-body>
+<platform hardward='G1'>
+ <testcase scenario='cell_degrade'>
+	<PrimaryFault Fault = 'service degraded'>
+		<device destination='DU-P'>
+			<target module='all'>	
+<!-- target module 'all' means the trace objects are mixed with different modules, maybe needs to be specify in the future -->			
+				<object name='lrhLocalCellSwU' group='trace[all]' />			
+				<object name='lrhConfigBl' group='trace[all]' />		
+				<object name='lrhCellEqRHSwU' group='trace[all]' />
+				<object name='Ft_CELL_CONFIG' group='trace[all]' />
+				<object name='Ft_SECTOR_CONFIG' group='trace[all]' />
+				<object name='Ft_LTE_EXCEPTION' group='trace[all]' />
+				<object name='CELL_RESOURCE_HANDLING' group='trace[all]' />
+				<object name='CARRIER_GROUP' group='trace[all]' />
+				<object name='RESOURCE_BROKER' group='trace[all]' />		
+				<object name='ncSectorSwU' group='trace[all]' />
+				<object name='ncCarrier' group='trace[all]' />	
+				<object name='rasSectorEquipment' group='trace[all]' />					
+			</target>						
+		</device> 	
+	</PrimaryFault> 
+ </testcase>
+</platform>
+
+<platform hardward='G2'>
+ <testcase scenario='cell_degrade'>
+	<PrimaryFault Fault = 'service degraded'>
+		<device destination='DU-P'>
+			<target module='all'>			
+				<object name='rasSectorEquipment' group='trace[all]' />			
+				<object name='ncSectorSwU' group='trace[all]' />		
+				<object name='tcRegC' group='trace[3,4]' />
+				<object name='Ft_CELL_CONFIG' group='trace[all]' />
+				<object name='Ft_CELL_POWER_SETTING' group='trace[2]' />
+				<object name='CARRIER_GROUP' group='trace[2]' />				
+			</target>						
+		</device> 	
+	</PrimaryFault> 
+ </testcase>
+</platform>
+</xml-body>
+
+
+
+  
+  
+  
+  
+  
+  

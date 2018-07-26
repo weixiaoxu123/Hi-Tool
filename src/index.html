@@ -16,9 +16,8 @@
   
   <script id="code">
      function init() {
-      //  read();
       // if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
-      var $ = go.GraphObject.make;     // create empty picture 
+      var $ = go.GraphObject.make;          // create empty picture 
       myDiagram =
         $(go.Diagram, "myDiagramDiv",
           {
@@ -134,25 +133,37 @@
             relinkableFrom: true, relinkableTo: true
           },
           $(go.Shape, { stroke: "gray", strokeWidth: 2 }),
-          $(go.Shape, { stroke: "gray", fill: "gray", toArrow: "Standard" })
+          $(go.Shape, { stroke: "gray", fill: "gray", toArrow: "Standard" }),  
+          $(go.Panel, "Auto",
+          $(go.Shape,  // the label background, which becomes transparent around the edges
+            { fill: $(go.Brush, "Radial", { 0: "rgb(240, 240, 240)", 0.3: "rgb(240, 240, 240)", 1: "rgba(240, 240, 240, 0)" }),
+              stroke: null }),
+          $(go.TextBlock,  // the label text
+            { textAlign: "center",
+              font: "10pt helvetica, arial, sans-serif",
+              stroke: "#555555",
+              margin: 3 },
+            new go.Binding("text", "text"))
+        )
         );
       // load();
     }
     // Show the diagram's model in JSON format that the user may edit
-    function save() {
-      // document.getElementById("mySavedModel").value = myDiagram.model.toJson();
-      // myDiagram.isModified = false;
-      init()
-    }
+    // function save() {
+    //   // document.getElementById("mySavedModel").value = myDiagram.model.toJson();
+    //   // myDiagram.isModified = false;
+      
+    // }
     function load() {
+    init()
     try{
       myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
     }catch(err){
       alert("Please Select Kgetfile !!!!!!");
     }
   }
-    //  function read() {
-    //     init()
+    //   function read() {
+    //    init()
     //    $.ajax({
     //    type: "GET",
     //    url: "../assets/demo.txt",

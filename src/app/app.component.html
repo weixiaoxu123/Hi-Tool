@@ -12,28 +12,48 @@
             <img src="../assets/team.png" width="200" height="175">
     </nav>
         
+        <!-- <li class="page-scroll"><a href="#analysis">About</a><span> </span></li>
+        <li class="page-scroll"><a href="#provider">About</a><span> </span></li> -->
         
             <div class="row">
                 <div class="col-md-10">
                     <!-- <div class="row"> -->
                 <!-- <div class="col-md-6"> -->
-                    <div class="card">
+                    <div class="card" id="provider">
                         <div class="card-header bg-info">
                             <h4 class="card-title">Trace Provider</h4>
                         </div>
                         <div class="card-body">
                             <!-- <h5 class="card-title">Trace provider</h5> -->
-                            <h5>STEP1:please input your alarm info here.</h5>
-                            <form style="margin-top: 10px">
-                                <div class="form-group">
-                                    <label for="alarmInput" style="margin-bottom: 0">Alarm/Error:</label>
-                                    <input type="text" class="form-control" id="alarmInput" placeholder="please input your alarm info here...">
-                                </div>
-                            </form>
-                            <h5>STEP2:If you have Kget file,please upload it here.<tr>Note: If you want show Topology please click showKget-->select file</h5>
-                            <app-alarm></app-alarm>
-                            <h5>STEP3:Please inpt a JCAT link or Select a case scenario. </h5>
+                        
+                            
                             <div class="container">
+                                    <div class="row">
+                                       <div class="col-sm-12">
+                                       <h5>STEP1:please input your alarm info here.</h5>
+                                       <form style="margin-top: 10px">
+                                       <div class="form-group">
+                                       <label for="alarmInput" style="margin-bottom: 0">Alarm/Error:</label>
+                                       <input type="text" class="form-control" id="alarmInput" placeholder="please input your alarm info here...">
+                                     </div>
+                                    </form>
+                            
+                                   </div>
+                                </div>
+                            </div>
+                  
+                            <div class="container">
+                                <div class="row">
+                                   <div class="col-sm-12">
+                                   <h5>STEP2:If you have Kget file,please upload it here.<tr>Note: If you want show Topology please click showKget-->select file</h5>
+                                       <app-alarm></app-alarm>
+                                         </div>
+                                    </div>
+                             </div>
+                          
+                           
+                            <div class="container">
+                             <h5>STEP3:Please inpt a JCAT link or Select a case scenario. </h5>
                                 <div class="row">
                                    <div class="col-sm-12 col-md-6">
                                             <div class="input-group" style="width: 100%">
@@ -53,7 +73,7 @@
                                                     <div class="input-group-prepend" style="width: 100%">
                                                       <div class="input-group-text" style="width: 100%">
                                                       <input type="radio" name="aaa" routerLink="/heroes" value='scenario' aria-label="Radio button for following text input">
-                                                        <span class="badge" style="font-size:20px">Scenario Selection</span>
+                                                      <span class="badge" style="font-size:20px">Scenario Selection</span>
                                                     </div>
                                                     </div>
                                                     
@@ -63,7 +83,7 @@
         
                                 </div>
         
-                                <router-outlet></router-outlet>
+                                <router-outlet ></router-outlet>
                                 <button type="submit" class="btn btn-primary" ng-click="all submit()">Submit</button>
                                 <div class="input-group" style="margin-top: 20px">
                                         <div class="input-group-prepend">
@@ -77,7 +97,7 @@
                                   
                         </div>
                     </div>
-                        <div class="card" style="margin-top: 20px">
+                        <div class="card" style="margin-top: 20px" id="analysis">
                                 <div class="card-header bg-info">
                                     <h4>Trace Analysis</h4>
                                 </div>

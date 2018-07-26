@@ -29,6 +29,8 @@ export class AlarmComponent implements OnInit {
         }
       );
     }
+
+
    // linkline data
     var riLinkId = new Array();
     var f1unit = new Array();
@@ -48,7 +50,7 @@ export class AlarmComponent implements OnInit {
       // 获取 linkid f1unit f1port f2unit  f2port
         var list = reader.result.split("\n");
            for(var i=0;i<list.length-1;i++){
-          if(list[i].indexOf("riLinkId")==0){
+           if(list[i].indexOf("riLinkId")==0){
                 var linkId = /\d{1,2}/.exec(list[i]);
                 riLinkId.push(linkId); 
                 }
@@ -94,14 +96,6 @@ export class AlarmComponent implements OnInit {
             }
           }
        }
-    // 生成json 格式文件
-    // alert(riLinkId);
-    // alert(f1unit);
-    // alert(f1port);
-    // alert(key);
-    // alert(name);
-    
-    
     //选取type的值
     for(var i=0;i<key.length;i++){
       var temp1=name[i].replace(/\s+/g,' ');  
@@ -119,21 +113,21 @@ export class AlarmComponent implements OnInit {
     }
     //编辑文本框内容
     var jsontxt;
-    jsontxt="{\"class\":\"go.GraphLinksMode\","+"\n"+ "\"nodeCategoryProperty\": \"type\","+"\n"+"\"linkFromPortIdProperty\": \"formpid\","+"\n"+"\"linkToPortIdProperty\": \"topid\","+"\n"+
+    jsontxt="{\"class\":\"go.GraphLinksMode\","+"\n"+ "\"nodeCategoryProperty\": \"type\","+"\n"+"\"linkFromPortIdProperty\": \"frompid\","+"\n"+"\"linkToPortIdProperty\": \"topid\","+"\n"+
     "\"nodeDataArray\": ["+"\n";
     for(var i=0;i<key.length;i++){
       if(i===9){
-        jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\",  \"name\":\""+name[i]+"\"}"+"\n";
+        jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\", \"name\":\""+name[i]+"\"}"+"\n";
         }else{
-      jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\",  \"name\":\""+name[i]+"\"},"+"\n";
+       jsontxt=jsontxt + "{\"key\":"+key[i]+", \"type\":\""+type[i]+"\", \"name\":\""+name[i]+"\"},"+"\n";
         }
        }
        jsontxt=jsontxt+"],"+"\n"+"\"linkDataArray\": ["+"\n";
        for(var i=0;i<riLinkId.length;i++){
        if(i===9){
-        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\"}"+"\n";
+        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\", \"text\":\"riLinkId="+riLinkId[i]+"\"}"+"\n";
         }else{
-        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\"},"+"\n";
+        jsontxt=jsontxt + "{\"from\":"+f1unit[i]+", \"frompid\":\""+f1port[i]+"\", \"to\":"+f2unit[i]+", \"topid\":\""+f2port[i]+"\", \"text\":\"riLinkId="+riLinkId[i]+"\"},"+"\n";
        }
     }
     jsontxt=jsontxt+"]}";

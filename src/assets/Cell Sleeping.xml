@@ -1,25 +1,55 @@
 <?xml version='1.0' encoding='UTF-8'?>
-  
-<testcase scenario='sleepingcell'>
-	
-  <target module='mu'>
-    <object name='icdbi' />
-		<object name='icEquipmentControlIfSwU' />
-		<object name='icEquipmentSwU' />
-		<object name='icPathSwU' />
-		<object name='icResourceTopologySwU' />
-		<object name='icPathAdministrationIfSwU' />
-		<command name='icPathPropertyIfSubSwU' />
-		<command name='icPathControlIfSwU' />
-      </target>
-	  
-	  <target module='xmu'>
-	    <object name='default' />
-	    <object name='beam.smp' />
-	    <object name='rhd-iqx*' />
-	  </target>
-	  
-	  </testcase>
-	  	  
+<platform hardward='G1'>
+ <testcase scenario='sleeping_cell'>
+	<PrimaryFault Fault = 'sleeping cell'>
+		<device destination='RU'>
+<!--p4 means platform4 radio -->
+			<check module='radio_p4'> 
+                <command name='cfpga read all'/>		
+                <command name='warpA read all'/>	
+                <command name='ru warpB read all'/>				
+			</check>	
+<!--p5 means platform5 radio -->
+			<check module='radio_p5'>
+                <command name='warp3 all_ul'/>		
+                <command name='warp3 all_dl'/>	
+                <command name='warp3 all_comm'/>				
+			</check>	  			
+		</device>
+		
+		<device destination='DU-P'>
+<!-- target module 'all' means the trace objects are mixed with different modules, maybe needs to be specify in the future -->
+			<target module='all'>
+			    <command name='ncdbi'/>
+				<command name='rdfpga 0x600 0x6bf'/>
+				<command name='ue enable -allcell -allUe'/>				
+				<object name='NSS_CBM_TUM2_TUREG' group='trace[5,state_change]' />			
+				<object name='Nss_topMgrMp2_proc' group='trace[all]' />		
+				<object name='Ft_TIMING_DISTRIBUTION' group='trace[all]' />
+				<object name='Ft_CELL_CONFIG' group='trace[all]' />
+				<object name='lrhCellEqRHSwU' group='trace[all]' />
+				<object name='lrhLocalCellSwU' group='trace[all]' />
+				<object name='ncRadioDeviceCtrlSwU' group='trace[all]' />
+				<object name='RESOURCE_BROKER' group='trace[all]' />
+				<object name='bbmcBbIcMeSwU' group='trace[all]' />		
+				<object name='ncIndHandlerLU' group='trace[all]' />
+				<object name='ncMaoFroIf' group='trace[all]' />	
+				<object name='ncFroMgmtLU' group='trace[all]' />
+				<object name='Ft_ANTENNA_CONTROL' group='trace[all]' />	
+				<object name='ncAntpIf' group='trace[all]' />
+				<object name='Ft_RRC_ASN' group='trace[all]' />						
+			</target>						
+		</device> 	
+		</PrimaryFault> 
 
-	
+ </testcase>
+</platform>
+
+
+
+  
+  
+  
+  
+  
+  
