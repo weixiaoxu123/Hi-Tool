@@ -10,7 +10,7 @@ import {AlarmComponent}   from './alarm/alarm.component';
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   // { path: 'dashboard', component: DashboardComponent },
-  // { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'detail', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'url', component: UrlComponent },
   { path: 'alarm', component: AlarmComponent },
