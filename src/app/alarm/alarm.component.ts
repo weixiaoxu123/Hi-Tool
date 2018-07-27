@@ -1,7 +1,7 @@
 // 这里是kget
 import { Component, OnInit } from '@angular/core';
 import { UploaderService } from './uploader.service';
-import * as go from 'gojs/release/go.js';
+
 import * as $ from "jquery";
 
 @Component({
@@ -12,14 +12,10 @@ import * as $ from "jquery";
 })
 export class AlarmComponent implements OnInit {
   showKget = false;
-  showpicture(){
-    this.showKget= !this.showKget;
-  }
   message: string;
-
   constructor(private uploaderService: UploaderService) {}
-  
   onPicked(input: HTMLInputElement) {
+    this.showKget= !this.showKget;
     const file = input.files[0];
     if (file) {
       this.uploaderService.upload(file).subscribe(
@@ -132,7 +128,7 @@ export class AlarmComponent implements OnInit {
     }
     jsontxt=jsontxt+"]}";
     $("#mySavedModel").append(jsontxt);
-      }
+    }
  }
 
 ngOnInit(){}  

@@ -53,7 +53,7 @@
                           
                            
                             <div class="container">
-                             <h5>STEP3:Please inpt a JCAT link or Select a case scenario. </h5>
+                             <h5>STEP3:Please input a JCAT link or Select a case scenario. </h5>
                                 <div class="row">
                                    <div class="col-sm-12 col-md-6">
                                             <div class="input-group" style="width: 100%">
@@ -68,28 +68,28 @@
                                     </div>
         
                                     <div class="col-sm-12 col-md-6">
-        
                                             <div class="input-group" style="width: 100%">
                                                     <div class="input-group-prepend" style="width: 100%">
                                                       <div class="input-group-text" style="width: 100%">
                                                       <input type="radio" name="aaa" routerLink="/heroes" value='scenario' aria-label="Radio button for following text input">
                                                       <span class="badge" style="font-size:20px">Scenario Selection</span>
                                                     </div>
-                                                    </div>
-                                                    
+                                                    </div> 
                                                   </div>
-        
                                     </div>
-        
                                 </div>
-        
+                                <div class="row">
+                               <div class="col-sm-12">
                                 <router-outlet ></router-outlet>
+                                 </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary" ng-click="all submit()">Submit</button>
+                                
                                 <div class="input-group" style="margin-top: 20px">
                                         <div class="input-group-prepend">
                                           <span class="input-group-text">Display Result</span>
                                         </div>
-                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <textarea class="form-control" aria-label="With textarea" id="scenario"></textarea>
                                 </div>
                             </div>
         

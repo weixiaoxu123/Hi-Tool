@@ -24,6 +24,7 @@
     "@types/jquery": "^3.3.4",
     "angular-in-memory-web-api": "^0.6.0",
     "bootstrap": "^4.1.1",
+    "bootstrap-submenu": "^3.0.1",
     "core-js": "^2.5.4",
     "gojs": "^1.8.25",
     "jquery": "^3.3.1",

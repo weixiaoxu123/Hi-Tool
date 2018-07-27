@@ -1,15 +1,72 @@
 <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
-<div class="col-6">
+<div class="col-6" style="float:right">
     <ul class="list-group heroes">
       <li *ngFor="let hero of heroes" class="list-group-item" (click)="onSelect(hero)">
-        <!-- <a routerLink="/detail/{{hero.id}}"> -->
+        <a routerLink="/detail/{{hero.id}}">
           <h6 class="row">
             <div class="col-2"><span class="badge badge-primary badge-pill">{{hero.id}}</span></div>
             <div class="col-10">{{hero.name}}</div>
           </h6>
+        </a>
       </li>
     </ul>
-  </div>
-  <div class="col-6">
-  <p id="abc"></p>
-  </div>
+    <p id="abc"></p>
+ </div>
+   
+  
+<!-- <div class="row">
+    <div class="col-sm-4 col-sm-offset-2 mb-3">
+      <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" data-submenu>
+         G1
+      </button>
+      <div class="dropdown-menu">
+        <div class="dropdown {{ include.placement }} dropdown-submenu">
+          <button class="dropdown-item dropdown-toggle" type="button" data-toggle="dropdown">Action</button>
+        
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Sub action</button>
+        
+            <div class="dropdown {{ include.placement }} dropdown-submenu">
+              <button class="dropdown-item dropdown-toggle" type="button">Another sub action</button>
+        
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">Sub action</button>
+                <button class="dropdown-item" type="button">Another sub action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
+        
+            <button class="dropdown-item" type="button">Something else here</button>
+            <button class="dropdown-item" type="button" disabled>Disabled action</button>
+        
+            <div class="dropdown {{ include.placement }} dropdown-submenu">
+              <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+        
+              <div class="dropdown-menu">
+                <button class="dropdown-item" type="button">Sub action</button>
+                <button class="dropdown-item" type="button">Another sub action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+             </div>
+           </div>
+         </div>
+        
+        <div class="dropdown-header">Dropdown header</div>
+        
+        <div class="dropdown {{ include.placement }} dropdown-submenu">
+          <button class="dropdown-item dropdown-toggle" type="button">Another action</button>
+        
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Sub action</button>
+            <button class="dropdown-item" type="button">Another sub action</button>
+            <button class="dropdown-item" type="button">Something else here</button>
+          </div>
+        </div>
+        
+        <button class="dropdown-item" type="button">Something else here</button>
+        <div class="dropdown-divider"></div>
+        <button class="dropdown-item" type="button">Separated link</button>
+      </div>
+    </div>
+  </div> -->
