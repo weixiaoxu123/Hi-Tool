@@ -8,9 +8,10 @@ import { UrlComponent }   from './url/url.component';
 import {AlarmComponent}   from './alarm/alarm.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+
   // { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail', component: HeroDetailComponent },
+  // { path: 'detail', component: HeroDetailComponent }
   { path: 'heroes', component: HeroesComponent },
   { path: 'url', component: UrlComponent },
   { path: 'alarm', component: AlarmComponent },

@@ -9,7 +9,7 @@
     // Browser globals
     factory(jQuery);
   }
-})(function($) {
+ })(function($) {
   class DropdownSubmenu {
     constructor(element) {
       this.element = element.parentElement;

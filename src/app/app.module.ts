@@ -14,7 +14,6 @@ import { UrlComponent } from './url/url.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AlarmComponent } from './alarm/alarm.component';
 import { CommonModule } from '@angular/common';
-
 import { httpInterceptorProviders } from './http-interceptors/index';
 
 @NgModule({

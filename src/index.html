@@ -157,10 +157,10 @@
       
     // }
     function load() {
-    init()
-    try{
-      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
-    }catch(err){
+      init();
+      try{
+        myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
+     }catch(err){
       alert("Please Select Kgetfile !!!!!!");
     }
   }

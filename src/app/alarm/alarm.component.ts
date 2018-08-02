@@ -1,7 +1,5 @@
-// 这里是kget
 import { Component, OnInit } from '@angular/core';
 import { UploaderService } from './uploader.service';
-
 import * as $ from "jquery";
 
 @Component({
@@ -15,9 +13,10 @@ export class AlarmComponent implements OnInit {
   message: string;
   constructor(private uploaderService: UploaderService) {}
   onPicked(input: HTMLInputElement) {
-    this.showKget= !this.showKget;
     const file = input.files[0];
+    document.getElementById("kget_file").innerHTML=file.name;
     if (file) {
+      this.showKget= true;
       this.uploaderService.upload(file).subscribe(
         msg => {
           input.value = null;

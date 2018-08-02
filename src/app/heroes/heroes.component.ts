@@ -202,7 +202,7 @@ export class HeroesComponent implements OnInit {
   //   });
   // }
 f1(addr,hero: Hero){
-  var a =window.open(addr,"_blank","toolbar=yes, location=no,titlebar=yes,directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
+  var a =window.open(addr,"_blank","toolbar=no, location=no,titlebar=yes,directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
   this.selectedHero = hero;
   var filepath = hero.name;
   var alarminput=$('#alarmInput').val();
@@ -246,16 +246,16 @@ f1(addr,hero: Hero){
                 strgroup=strgroup+group1[i]+" ";
                 }
         }
-            var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+            var strname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+'te e '+ strgroup + name+'</p>';
             a.document.writeln(strname);   
         });//check object
         $(this).find('command').each(function (i) {
           var name = $(this).attr("name");
           var group=$(this).attr('group');
           if(!group){
-           var strcomname='<p>-------'+ name+'</p>';
+           var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+'</p>';
           }else{
-           var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
+           var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+ '--group:' +group+'</p>';
           }
           a.document.writeln(strcomname);  
          });
@@ -278,16 +278,16 @@ f1(addr,hero: Hero){
                 strgroup=strgroup+group1[i]+" ";
                 }
           }
-            var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+            var strname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+'te e '+ strgroup + name+'</p>';
             a.document.writeln(strname);   
         }); //target object
         $(this).find('command').each(function (i) {
            var name = $(this).attr("name");
            var group=$(this).attr('group');
            if(!group){
-            var strcomname='<p>-------'+ name+'</p>';
+            var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+'</p>';
            }else{
-            var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
+            var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+ '--group:' +group+'</p>';
            }
            a.document.writeln(strcomname);  
           }); //target command
@@ -332,16 +332,16 @@ f1(addr,hero: Hero){
                           strgroup=strgroup+group1[i]+" ";
                           }
                   }
-                      var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+                      var strname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+'te e '+ strgroup + name+'</p>';
                       a.document.writeln(strname);   
                   });//check object
                   $(this).find('command').each(function (i) {
                     var name = $(this).attr("name");
                     var group=$(this).attr('group');
                     if(!group){
-                     var strcomname='<p>-------'+ name+'</p>';
+                     var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+'</p>';
                     }else{
-                     var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
+                     var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+ '--group:' +group+'</p>';
                     }
                     a.document.writeln(strcomname);  
                    });
@@ -362,16 +362,16 @@ f1(addr,hero: Hero){
                           strgroup=strgroup+group1[i]+" ";
                           }
                     }
-                      var strname='<p>-------'+'te e '+ strgroup + name+'</p>';
+                      var strname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+'te e '+ strgroup + name+'</p>';
                       a.document.writeln(strname);   
                   }); //target object
                   $(this).find('command').each(function (i) {
                      var name = $(this).attr("name");
                      var group=$(this).attr('group');
                      if(!group){
-                      var strcomname='<p>-------'+ name+'</p>';
+                      var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+'</p>';
                      }else{
-                      var strcomname='<p>-------'+ name+ '--group:' +group+'</p>';
+                      var strcomname='<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp'+ name+ '--group:' +group+'</p>';
                      }
                      a.document.writeln(strcomname);  
                     }); //target command
